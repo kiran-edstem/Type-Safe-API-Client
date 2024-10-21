@@ -36,17 +36,13 @@ post.then((postResponse: IPost) => {
 
 const user = fetchData<IUser>(`/users/1`, 5)
 user.then((userResponse: IUser) => {
-    // console.log(userResponse);
-    // console.log(userResponse.name)
-    // console.log(userResponse.phone)
-    // console.log(userResponse.email);
+    console.log(userResponse);
+    console.log(userResponse.name)
+    console.log(userResponse.phone)
+    console.log(userResponse.email);
 }).catch(err => console.log(err));
 
 const comments = fetchData<Comments>(`/posts/1/comments`, 5)
 comments.then((commentResponse: Comments) => {
     console.log(commentResponse);
-    // console.log(commentResponse[0].body)
-    // console.log(commentResponse[0].email)
-    // console.log(commentResponse[0].postId)
-    // console.log(commentResponse[0].name)
 })
