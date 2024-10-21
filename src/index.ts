@@ -2,7 +2,7 @@ import IPost from "./interfaces/Post"
 import IUser from './interfaces/User';
 import Comments from './interfaces/Comment';
 
-async function fetchData<T>(url: string, retry: number): Promise<T | never> {
+async function fetchData<T>(url: string, retry: number = 3): Promise<T | never> {
     try {
         const response = await fetch(
             `https://jsonplaceholder.typicode.com${url}`,
