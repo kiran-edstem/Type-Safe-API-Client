@@ -15,7 +15,14 @@ async function fetchData<T>(url: string, retry: number = 3): Promise<T | never> 
         if (retry > 0) {
             return fetchData(url, retry - 1)
         } else {
-            console.log(response.statusText, response.status)
+            if (response.status === 400) {
+                console.log(`400 Bad Request`)
+                console.log(response.statusText);
+            }
+            if (response.status === 404) {
+                console.log(`404 Not Found`)
+                console.log(response.statusText);
+            }
             throw new Error(`Too many retries`)
         }
 
