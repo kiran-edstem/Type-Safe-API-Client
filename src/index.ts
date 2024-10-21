@@ -15,11 +15,12 @@ async function fetchData<T>(url: string, retry: number = 3): Promise<T | never> 
         if (retry > 0) {
             return fetchData(url, retry - 1)
         } else {
+            console.log(response.statusText, response.status)
             throw new Error(`Too many retries`)
         }
 
     } catch (err) {
-        console.log(err);
+        console.log(err, 'errror');
         throw new Error('Something went wrong')
     }
 }
